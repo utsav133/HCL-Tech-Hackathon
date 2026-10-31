@@ -1,0 +1,22 @@
+{
+  "records": 1800,
+  "columns": 32,
+  "distinct_customers": 1800,
+  "duplicate_customer_ids": 0,
+  "missing_cells": 0,
+  "churned": 900,
+  "retained": 900,
+  "churn_rate": 0.5,
+  "prediction_date_min": "2025-01-01",
+  "prediction_date_max": "2026-08-01",
+  "industry_segments": {
+    "Telecom": 600,
+    "Retail": 600,
+    "Subscription": 600
+  },
+  "plan_tiers": {
+    "Standard": 600,
+    "Basic": 600,
+    "Premium": 600
+  }
+}

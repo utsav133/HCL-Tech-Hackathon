@@ -1,0 +1,39 @@
+field_name,data_type,definition,feature_availability_or_warning,file
+customer_id,Identifier,"Unique synthetic customer key; one row per customer, no repeats.",Identifier only; exclude from model.,Main dataset
+prediction_date,Date,First day of a month when a churn forecast is made.,"Prediction-time metadata; use for chronological split, not a shortcut to outcome.",Main dataset
+data_split,Category,TRAIN Jan 2025-Feb 2026; VALIDATION Mar-May 2026; TEST Jun-Aug 2026.,Partition metadata; exclude as model feature.,Main dataset
+industry_segment,Category,"Business industry: Retail, Telecom, or Subscription.",Observed by cutoff.,Main dataset
+customer_segment,Category,"Tenure-based customer segment: New (3-11m), Established (12-35m), Loyal (36m+).",Observed by cutoff.,Main dataset
+plan_tier,Category,"Customer plan/service tier: Basic, Standard, or Premium.",Observed by cutoff.,Main dataset
+contract_type,Category,"Contract or renewal cadence: Month-to-month, Quarterly, Annual.",Observed by cutoff.,Main dataset
+tenure_months,Integer,Completed active months as of prediction date; >=3.,Observed by cutoff; eligibility signal.,Main dataset
+monthly_charges_usd,Decimal USD,Current monthly-equivalent nominal fee before active discount.,Observed by cutoff.,Main dataset
+total_billed_to_date_usd,Decimal USD,"Synthetic cumulative invoiced amount up to cutoff, including discounts.",Observed by cutoff.,Main dataset
+payment_method,Category,"Credit Card, Bank Transfer, Digital Wallet, or Cash/Manual.",Observed by cutoff.,Main dataset
+auto_pay_enabled,Binary,"1 if autopay enabled at cutoff, otherwise 0.",Observed by cutoff.,Main dataset
+billing_issues_90d,Integer,Count of billing issues within the 90-day lookback.,Pre-cutoff 90 days.,Main dataset
+late_payments_90d,Integer,Count of late payments within the 90-day lookback.,Pre-cutoff 90 days.,Main dataset
+failed_payments_90d,Integer,Count of failed payment attempts within the 90-day lookback.,Pre-cutoff 90 days.,Main dataset
+support_tickets_90d,Integer,Number of service/support contacts opened in the 90-day lookback.,Pre-cutoff 90 days.,Main dataset
+unresolved_tickets_at_cutoff,Integer,Lookback tickets unresolved on the prediction date; never exceeds ticket count.,Known by cutoff.,Main dataset
+avg_ticket_resolution_hours_90d,Decimal hours,Average resolution hours for resolved lookback tickets; 0 when none resolved.,Pre-cutoff 90 days.,Main dataset
+csat_score_last90d,Decimal 1-5,Latest synthetic customer-satisfaction survey score in lookback.,Known by cutoff; assumed measured for each customer.,Main dataset
+plan_suitability_score,Decimal 1-5,Synthetic plan-fit score from pre-cutoff feedback and suitability assessment.,Known by cutoff; subjective synthetic measure.,Main dataset
+usage_index_prev_30d,Integer 0-100,Normalized usage index for days -60 through -31 (industry-comparable index).,Pre-cutoff 30-day baseline.,Main dataset
+usage_index_recent_30d,Integer 0-100,Normalized usage index for days -30 through -1.,Pre-cutoff most recent 30 days.,Main dataset
+usage_change_pct,Decimal %,100*(recent usage index - previous usage index)/previous usage index.,Derived exclusively from pre-cutoff values.,Main dataset
+engagement_sessions_prev_30d,Integer,Pre-cutoff engagement sessions on days -60 through -31.,Pre-cutoff 30-day baseline.,Main dataset
+engagement_sessions_recent_30d,Integer,Pre-cutoff engagement sessions on days -30 through -1.,Pre-cutoff most recent 30 days.,Main dataset
+engagement_change_pct,Decimal %,100*(recent - previous engagement sessions)/previous sessions.,Derived exclusively from pre-cutoff values; previous sessions >=1.,Main dataset
+days_since_last_activity,Integer,Whole days since last engagement as of prediction; >=30 if no recent sessions.,Known by cutoff.,Main dataset
+renewal_due_in_days,Integer,Days until next planned contract renewal at prediction date.,"Known by cutoff (schedule), not a future outcome.",Main dataset
+recent_plan_change_90d,Binary,1 if plan tier/cadence changed in the 90-day lookback.,Pre-cutoff 90 days.,Main dataset
+active_discount_pct,Integer %,"Current active percentage discount: 0, 5, 10, 15, or 20.",Known by cutoff.,Main dataset
+prior_retention_contact_90d,Binary,1 if human retention contact occurred in pre-cutoff 90 days.,"Pre-cutoff historical interaction, not future intervention.",Main dataset
+churn_label,TARGET binary,1=Churned; 0=Retained in days +1 through +30 after cutoff.,POST-cutoff target. Never used as a predictor.,Main dataset
+observation_start_date,Date,First day of 90-day lookback: prediction_date-90 days.,Metadata; label audit only.,Explicit labels only
+observation_end_date,Date,Last observed day: prediction_date-1 day.,Metadata; label audit only.,Explicit labels only
+label_window_start_date,Date,First eligible outcome day: prediction_date+1 day.,Post-cutoff label metadata only; exclude from model.,Explicit labels only
+label_window_end_date,Date,Last eligible outcome day: prediction_date+30 days.,Post-cutoff label metadata only; exclude from model.,Explicit labels only
+churn_label_text,TARGET category,Churned if churn_label=1; Retained if churn_label=0.,POST-cutoff target alias. Exclude from predictors.,Explicit labels only
+churn_event_type,TARGET category,Cancellation or Non-renewal; No churn event for retained customers.,POST-cutoff event label. Exclude from predictors.,Explicit labels only

@@ -1,0 +1,24 @@
+{
+  "root": "HCLTech_Churn_Full_Source_Code",
+  "all_files": 50,
+  "source_py_files": [
+    "app.py",
+    "run_all.py",
+    "src/tune_xgboost.py",
+    "src/generate_dataset_reference.py",
+    "src/__init__.py",
+    "src/make_figures.py",
+    "src/train_and_evaluate.py",
+    "src/build_offline_dashboard.py",
+    "src/validate_outputs.py",
+    "src/score_new_customers.py",
+    "src/eda_report.py",
+    "tests/test_pipeline.py"
+  ],
+  "generated_outputs": 26,
+  "dataset_records": 1800,
+  "tests_passed": 6,
+  "model_input_features": 28,
+  "source_basis": "Uploaded HCLTech use-case and XGBoost research paper",
+  "data_type": "deliberately balanced synthetic, not real world"
+}

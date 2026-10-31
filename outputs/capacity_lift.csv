@@ -1,0 +1,5 @@
+capacity_pct,top_k,captured_churners,false_positives,precision_at_k,recall_at_k,lift_at_k,monthly_charge_exposure_proxy_usd,risk_weighted_monthly_charge_proxy_usd
+10,27,19,8,0.703704,0.140741,1.407407,2149.49,1654.82
+20,54,36,18,0.666667,0.266667,1.333333,4132.65,3011.6
+30,81,52,29,0.641975,0.385185,1.283951,5843.73,4067.73
+50,135,81,54,0.6,0.6,1.2,9578.13,6042.8

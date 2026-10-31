@@ -1,0 +1,22 @@
+segment_dimension,segment,count,churn_rate,precision,recall,false_positives,false_negatives,flagged
+industry_segment,Retail,90,0.5,0.5714,0.3556,12,29,28
+industry_segment,Subscription,90,0.5,0.64,0.3556,9,29,25
+industry_segment,Telecom,90,0.5,0.7619,0.3556,5,29,21
+plan_tier,Basic,90,0.5,0.6667,0.3556,8,29,24
+plan_tier,Premium,90,0.5,0.625,0.4444,12,25,32
+plan_tier,Standard,90,0.5,0.6667,0.2667,6,33,18
+contract_type,Annual,75,0.3467,0.4706,0.3077,9,18,17
+contract_type,Month-to-month,154,0.6039,0.7292,0.3763,13,58,48
+contract_type,Quarterly,41,0.3902,0.5556,0.3125,4,11,9
+customer_segment,Established,151,0.4967,0.6809,0.4267,15,43,47
+customer_segment,Loyal,96,0.4688,0.55,0.2444,9,34,20
+customer_segment,New,23,0.6522,0.7143,0.3333,2,10,7
+tenure_band,3–12,26,0.5769,0.7143,0.3333,2,10,7
+tenure_band,13–36,150,0.5133,0.6939,0.4416,15,43,49
+tenure_band,37–72,79,0.4304,0.4286,0.1765,8,28,14
+tenure_band,73+,15,0.6,0.75,0.3333,1,6,4
+usage_trend,Decline >20%,111,0.6126,0.6462,0.6176,23,26,65
+usage_trend,Mild decline,79,0.3671,0.625,0.1724,3,24,8
+usage_trend,Flat/rising,80,0.475,1.0,0.0263,0,37,1
+billing_segment,Has billing issues,99,0.6364,0.7292,0.5556,13,28,48
+billing_segment,No billing issues,171,0.4211,0.5,0.1806,13,59,26

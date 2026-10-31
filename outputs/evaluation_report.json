@@ -1,0 +1,393 @@
+{
+  "research_paper": "AI-based Customer Churn Prediction System using XGBoost for Early Retention and Revenue Optimization (ICSCSS 2026)",
+  "data_kind": "Synthetic balanced case-control; not real prevalence",
+  "qa": {
+    "total_records": 1800,
+    "unique_customers": 1800,
+    "missing_values": 0,
+    "positive_labels": 900,
+    "negative_labels": 900
+  },
+  "labels": {
+    "0": "Retained",
+    "1": "Churned within +1 to +30 days"
+  },
+  "observations": "Prior 90 days; earlier and latest 30 days for change features",
+  "temporal_sets": {
+    "train_pre_cutoff": {
+      "dates": [
+        "2025-01-01",
+        "2026-01-01"
+      ],
+      "n": 1170,
+      "churned": 585
+    },
+    "purged_gap": {
+      "dates": [
+        "2026-02-01",
+        "2026-02-01"
+      ],
+      "n": 90,
+      "reason": "February 1 labels become known after March 1 calibration cohort is scored"
+    },
+    "calibration": {
+      "dates": [
+        "2026-03-01",
+        "2026-03-01"
+      ],
+      "n": 90,
+      "churned": 45
+    },
+    "threshold_validation": {
+      "dates": [
+        "2026-04-01",
+        "2026-05-01"
+      ],
+      "n": 180,
+      "churned": 90
+    },
+    "heldout_test": {
+      "dates": [
+        "2026-06-01",
+        "2026-08-01"
+      ],
+      "n": 270,
+      "churned": 135
+    }
+  },
+  "selection": "XGBoost is paper-inspired PRIMARY MODEL (not selected by test). Threshold: max validation F1 with <=30% outreach capacity.",
+  "selected_xgboost_threshold": 0.5987339,
+  "model_results": {
+    "XGBoost": {
+      "threshold_selected_on_april_may_validation": 0.5987339,
+      "validation_threshold_metrics": {
+        "n": 180,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.622222,
+        "pr_auc_average_precision": 0.689587,
+        "roc_auc": 0.709383,
+        "precision": 0.703704,
+        "recall": 0.422222,
+        "f1": 0.527778,
+        "brier_score": 0.219204,
+        "log_loss": 0.629866,
+        "flagged": 54,
+        "true_positives": 38,
+        "false_positives": 16,
+        "false_negatives": 52,
+        "true_negatives": 74,
+        "threshold": 0.5987339
+      },
+      "test_metrics": {
+        "n": 270,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.581481,
+        "pr_auc_average_precision": 0.618072,
+        "roc_auc": 0.645981,
+        "precision": 0.648649,
+        "recall": 0.355556,
+        "f1": 0.45933,
+        "brier_score": 0.236257,
+        "log_loss": 0.664889,
+        "flagged": 74,
+        "true_positives": 48,
+        "false_positives": 26,
+        "false_negatives": 87,
+        "true_negatives": 109,
+        "threshold": 0.5987339
+      },
+      "test_at_fixed_0_5": {
+        "n": 270,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.592593,
+        "pr_auc_average_precision": 0.618072,
+        "roc_auc": 0.645981,
+        "precision": 0.606838,
+        "recall": 0.525926,
+        "f1": 0.563492,
+        "brier_score": 0.236257,
+        "log_loss": 0.664889,
+        "flagged": 117,
+        "true_positives": 71,
+        "false_positives": 46,
+        "false_negatives": 64,
+        "true_negatives": 89,
+        "threshold": 0.5
+      },
+      "calibration_march_n": 90
+    },
+    "LogisticRegression": {
+      "threshold_selected_on_april_may_validation": 0.583998,
+      "validation_threshold_metrics": {
+        "n": 180,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.622222,
+        "pr_auc_average_precision": 0.688663,
+        "roc_auc": 0.693333,
+        "precision": 0.703704,
+        "recall": 0.422222,
+        "f1": 0.527778,
+        "brier_score": 0.222767,
+        "log_loss": 0.637523,
+        "flagged": 54,
+        "true_positives": 38,
+        "false_positives": 16,
+        "false_negatives": 52,
+        "true_negatives": 74,
+        "threshold": 0.583998
+      },
+      "test_metrics": {
+        "n": 270,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.62963,
+        "pr_auc_average_precision": 0.701203,
+        "roc_auc": 0.679232,
+        "precision": 0.716049,
+        "recall": 0.42963,
+        "f1": 0.537037,
+        "brier_score": 0.22521,
+        "log_loss": 0.641865,
+        "flagged": 81,
+        "true_positives": 58,
+        "false_positives": 23,
+        "false_negatives": 77,
+        "true_negatives": 112,
+        "threshold": 0.583998
+      },
+      "test_at_fixed_0_5": {
+        "n": 270,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.614815,
+        "pr_auc_average_precision": 0.701203,
+        "roc_auc": 0.679232,
+        "precision": 0.63964,
+        "recall": 0.525926,
+        "f1": 0.577236,
+        "brier_score": 0.22521,
+        "log_loss": 0.641865,
+        "flagged": 111,
+        "true_positives": 71,
+        "false_positives": 40,
+        "false_negatives": 64,
+        "true_negatives": 95,
+        "threshold": 0.5
+      },
+      "calibration_march_n": 90
+    },
+    "DecisionTree": {
+      "threshold_selected_on_april_may_validation": 0.508641,
+      "validation_threshold_metrics": {
+        "n": 180,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.405556,
+        "pr_auc_average_precision": 0.40999,
+        "roc_auc": 0.34784,
+        "precision": 0.292683,
+        "recall": 0.133333,
+        "f1": 0.183206,
+        "brier_score": 0.252977,
+        "log_loss": 0.699104,
+        "flagged": 41,
+        "true_positives": 12,
+        "false_positives": 29,
+        "false_negatives": 78,
+        "true_negatives": 61,
+        "threshold": 0.508641
+      },
+      "test_metrics": {
+        "n": 270,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.425926,
+        "pr_auc_average_precision": 0.428227,
+        "roc_auc": 0.392565,
+        "precision": 0.333333,
+        "recall": 0.148148,
+        "f1": 0.205128,
+        "brier_score": 0.252648,
+        "log_loss": 0.698469,
+        "flagged": 60,
+        "true_positives": 20,
+        "false_positives": 40,
+        "false_negatives": 115,
+        "true_negatives": 95,
+        "threshold": 0.508641
+      },
+      "test_at_fixed_0_5": {
+        "n": 270,
+        "observed_churn_rate": 0.5,
+        "accuracy": 0.433333,
+        "pr_auc_average_precision": 0.428227,
+        "roc_auc": 0.392565,
+        "precision": 0.44375,
+        "recall": 0.525926,
+        "f1": 0.481356,
+        "brier_score": 0.252648,
+        "log_loss": 0.698469,
+        "flagged": 160,
+        "true_positives": 71,
+        "false_positives": 89,
+        "false_negatives": 64,
+        "true_negatives": 46,
+        "threshold": 0.5
+      },
+      "calibration_march_n": 90
+    }
+  },
+  "capacity_lift": [
+    {
+      "capacity_pct": 10,
+      "top_k": 27,
+      "captured_churners": 19,
+      "false_positives": 8,
+      "precision_at_k": 0.703704,
+      "recall_at_k": 0.140741,
+      "lift_at_k": 1.407407,
+      "monthly_charge_exposure_proxy_usd": 2149.49,
+      "risk_weighted_monthly_charge_proxy_usd": 1654.82
+    },
+    {
+      "capacity_pct": 20,
+      "top_k": 54,
+      "captured_churners": 36,
+      "false_positives": 18,
+      "precision_at_k": 0.666667,
+      "recall_at_k": 0.266667,
+      "lift_at_k": 1.333333,
+      "monthly_charge_exposure_proxy_usd": 4132.65,
+      "risk_weighted_monthly_charge_proxy_usd": 3011.6
+    },
+    {
+      "capacity_pct": 30,
+      "top_k": 81,
+      "captured_churners": 52,
+      "false_positives": 29,
+      "precision_at_k": 0.641975,
+      "recall_at_k": 0.385185,
+      "lift_at_k": 1.283951,
+      "monthly_charge_exposure_proxy_usd": 5843.73,
+      "risk_weighted_monthly_charge_proxy_usd": 4067.73
+    },
+    {
+      "capacity_pct": 50,
+      "top_k": 135,
+      "captured_churners": 81,
+      "false_positives": 54,
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.6,
+      "lift_at_k": 1.2,
+      "monthly_charge_exposure_proxy_usd": 9578.13,
+      "risk_weighted_monthly_charge_proxy_usd": 6042.8
+    }
+  ],
+  "calibration_bins": [
+    {
+      "bin": 1,
+      "score_interval": "0.000\u20130.125",
+      "count": 2,
+      "mean_predicted_risk": 0.11879,
+      "observed_churn_rate": 1.0
+    },
+    {
+      "bin": 2,
+      "score_interval": "0.125\u20130.250",
+      "count": 20,
+      "mean_predicted_risk": 0.2073,
+      "observed_churn_rate": 0.5
+    },
+    {
+      "bin": 3,
+      "score_interval": "0.250\u20130.375",
+      "count": 64,
+      "mean_predicted_risk": 0.31455,
+      "observed_churn_rate": 0.51562
+    },
+    {
+      "bin": 4,
+      "score_interval": "0.375\u20130.500",
+      "count": 67,
+      "mean_predicted_risk": 0.43947,
+      "observed_churn_rate": 0.55224
+    },
+    {
+      "bin": 5,
+      "score_interval": "0.500\u20130.625",
+      "count": 51,
+      "mean_predicted_risk": 0.5602,
+      "observed_churn_rate": 0.52941
+    },
+    {
+      "bin": 6,
+      "score_interval": "0.625\u20130.750",
+      "count": 50,
+      "mean_predicted_risk": 0.68288,
+      "observed_churn_rate": 0.4
+    },
+    {
+      "bin": 7,
+      "score_interval": "0.750\u20130.875",
+      "count": 16,
+      "mean_predicted_risk": 0.79923,
+      "observed_churn_rate": 0.375
+    }
+  ],
+  "global_risk_drivers": [
+    {
+      "feature": "usage_change_pct",
+      "mean_abs_shap_log_odds": 0.368204
+    },
+    {
+      "feature": "renewal_due_in_days",
+      "mean_abs_shap_log_odds": 0.213143
+    },
+    {
+      "feature": "engagement_change_pct",
+      "mean_abs_shap_log_odds": 0.179802
+    },
+    {
+      "feature": "contract_type",
+      "mean_abs_shap_log_odds": 0.130243
+    },
+    {
+      "feature": "tenure_months",
+      "mean_abs_shap_log_odds": 0.124286
+    },
+    {
+      "feature": "usage_index_prev_30d",
+      "mean_abs_shap_log_odds": 0.098164
+    },
+    {
+      "feature": "billing_issues_90d",
+      "mean_abs_shap_log_odds": 0.093546
+    },
+    {
+      "feature": "total_billed_to_date_usd",
+      "mean_abs_shap_log_odds": 0.088489
+    },
+    {
+      "feature": "usage_index_recent_30d",
+      "mean_abs_shap_log_odds": 0.080604
+    },
+    {
+      "feature": "late_payments_90d",
+      "mean_abs_shap_log_odds": 0.075825
+    },
+    {
+      "feature": "payment_method",
+      "mean_abs_shap_log_odds": 0.073874
+    },
+    {
+      "feature": "monthly_charges_usd",
+      "mean_abs_shap_log_odds": 0.073479
+    }
+  ],
+  "warnings": [
+    "Balanced synthetic set: 50% event prevalence, which distorts apparent lift/precision and probability calibration relative to natural churn prevalence.",
+    "Review capacity and flagged true churners are based on observed synthetic test outcomes; none are proven to be saved by outreach.",
+    "Revenue exposure is a monthly charge proxy, not observed prevented revenue or causal treatment effect.",
+    "No future event fields in model; separate explicit outcome labels CSV must never be joined to predictors.",
+    "Customer-level SHAP values are XGBoost uncalibrated margin (log-odds) contributions, not direct contributions in percent risk.",
+    "Single synthetic cohort per customer: do not interpret time trends as longitudinal individual change.",
+    "Comparative metrics are measured on this dataset, not the paper data; paper performance values are not reproduced.",
+    "Small test (270) and calibration (90) groups: uncertainty is substantial and simulated performance may not generalize."
+  ]
+}

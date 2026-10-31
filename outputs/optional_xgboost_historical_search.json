@@ -1,0 +1,90 @@
+{
+  "selection_rule": "Highest historical rolling average precision; not test data",
+  "suggested_params": {
+    "n_estimators": 160,
+    "max_depth": 2,
+    "learning_rate": 0.05
+  },
+  "candidates": [
+    {
+      "n_estimators": 160,
+      "max_depth": 2,
+      "learning_rate": 0.05,
+      "mean_historical_AP": 0.711874,
+      "fold_AP": [
+        0.7376104401087699,
+        0.6861383447726369
+      ]
+    },
+    {
+      "n_estimators": 240,
+      "max_depth": 2,
+      "learning_rate": 0.05,
+      "mean_historical_AP": 0.701797,
+      "fold_AP": [
+        0.7332468311517484,
+        0.6703476914988925
+      ]
+    },
+    {
+      "n_estimators": 160,
+      "max_depth": 2,
+      "learning_rate": 0.09,
+      "mean_historical_AP": 0.700108,
+      "fold_AP": [
+        0.7156825434733057,
+        0.6845339672741336
+      ]
+    },
+    {
+      "n_estimators": 160,
+      "max_depth": 3,
+      "learning_rate": 0.05,
+      "mean_historical_AP": 0.699209,
+      "fold_AP": [
+        0.7218802815636789,
+        0.6765378199509366
+      ]
+    },
+    {
+      "n_estimators": 240,
+      "max_depth": 3,
+      "learning_rate": 0.05,
+      "mean_historical_AP": 0.694731,
+      "fold_AP": [
+        0.7131088264783285,
+        0.6763534208273065
+      ]
+    },
+    {
+      "n_estimators": 160,
+      "max_depth": 3,
+      "learning_rate": 0.09,
+      "mean_historical_AP": 0.691614,
+      "fold_AP": [
+        0.7041711893959968,
+        0.6790574107676225
+      ]
+    },
+    {
+      "n_estimators": 240,
+      "max_depth": 2,
+      "learning_rate": 0.09,
+      "mean_historical_AP": 0.690626,
+      "fold_AP": [
+        0.6984992228582835,
+        0.6827519337593561
+      ]
+    },
+    {
+      "n_estimators": 240,
+      "max_depth": 3,
+      "learning_rate": 0.09,
+      "mean_historical_AP": 0.68255,
+      "fold_AP": [
+        0.6896098915164722,
+        0.6754909447872671
+      ]
+    }
+  ]
+}

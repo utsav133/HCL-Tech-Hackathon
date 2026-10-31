@@ -1,0 +1,19 @@
+segment_type,segment,customers,churned,churn_rate
+industry_segment,Retail,600,300,0.5
+industry_segment,Subscription,600,300,0.5
+industry_segment,Telecom,600,300,0.5
+plan_tier,Basic,600,300,0.5
+plan_tier,Premium,600,300,0.5
+plan_tier,Standard,600,300,0.5
+contract_type,Annual,502,193,0.3844621513944223
+contract_type,Month-to-month,1014,578,0.5700197238658777
+contract_type,Quarterly,284,129,0.45422535211267606
+customer_segment,Established,974,514,0.5277207392197125
+customer_segment,Loyal,671,304,0.45305514157973176
+customer_segment,New,155,82,0.5290322580645161
+payment_method,Bank Transfer,507,225,0.4437869822485207
+payment_method,Cash/Manual,157,91,0.5796178343949044
+payment_method,Credit Card,698,361,0.5171919770773639
+payment_method,Digital Wallet,438,223,0.5091324200913242
+auto_pay_enabled,0,623,324,0.5200642054574639
+auto_pay_enabled,1,1177,576,0.4893797790994053
